@@ -4,6 +4,7 @@ using System.ServiceProcess;
 using System.Timers;
 using System.Xml;
 using System.Xml.Xsl;
+using XSLTWindowsService.Properties;
 
 namespace XSLTWindowsService
 {
@@ -14,13 +15,14 @@ namespace XSLTWindowsService
 
         public Service1()
         {
+            logger.Debug(LogStrings.ServiceConstructor);
             logger.Debug(MethodBase.GetCurrentMethod().DeclaringType.Name);
             InitializeComponent();
         }
 
         protected override void OnStart(string[] args)
         {
-            logger.Debug(MethodBase.GetCurrentMethod().DeclaringType.Name);
+            logger.Debug(LogStrings.ServiceStarted);
             myTimer = new Timer(10000);
             myTimer.Elapsed += new ElapsedEventHandler(DisplayTimeEvent);
             myTimer.Enabled = true;
@@ -32,12 +34,13 @@ namespace XSLTWindowsService
             // code here will run every second
             try
             {
-                logger.Debug(MethodBase.GetCurrentMethod().DeclaringType.Name);
+                logger.Debug(LogStrings.XSLTTransformationStarted);
                 XslTransform xsl = new XslTransform();
                 XmlTextReader xmlTextReader = new XmlTextReader("C:\\Users\\andreu.conesa\\Documents\\cds.xsl");
                 xsl.Load(xmlTextReader);
                 // Execute the transformation and output the results to a file.
                 xsl.Transform("C:\\Users\\andreu.conesa\\Documents\\cds.xml", "C:\\Users\\andreu.conesa\\Documents\\cds.html");
+                logger.Debug(LogStrings.XSLTTransformationEnded);
             }
             catch (Exception ex)
             {
@@ -48,6 +51,7 @@ namespace XSLTWindowsService
 
         protected override void OnStop()
         {
+            logger.Debug(LogStrings.ServiceStopped);
             myTimer.Stop();
         }
     }

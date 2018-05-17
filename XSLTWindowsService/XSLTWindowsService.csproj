@@ -56,6 +56,11 @@
     <Compile Include="ProjectInstaller.Designer.cs">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\LogStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogStrings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Service1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -66,8 +71,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\LogStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="log4net.config" />
+    <EmbeddedResource Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
