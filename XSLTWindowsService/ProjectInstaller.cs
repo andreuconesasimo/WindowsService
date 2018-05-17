@@ -13,7 +13,7 @@ namespace XSLTWindowsService
     {
         public ProjectInstaller()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
     }
 }
