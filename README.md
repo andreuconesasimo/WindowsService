@@ -8,8 +8,8 @@ Generates HTML using xml and xsl every 10 seconds.
 
 · In order to remove the service, write the following command:
 
-  - sc delete nombre_servicio
+  - sc delete serviceName
 
 or
 
-  - installutil nombre_ejecutable /u
+  - installutil exeName /u
