@@ -1,14 +1,15 @@
 # Windows Service
 
-Generates HTML using xml and xsl
+Generates HTML using xml and xsl every 10 seconds.
 
-Para instalar el servicio:
+In order to install the service, after building the project, in a terminal go to the executable directory and write the following command:
 
-installutil nombre_ejecutable --> .exe
-(generado al compilar el proyecto)
+installutil exeName.exe
 
-Para eliminar el servicio:
+In order to remove the service, write the following command:
 
 sc delete nombre_servicio
-o
+
+or
+
 installutil nombre_ejecutable /u
